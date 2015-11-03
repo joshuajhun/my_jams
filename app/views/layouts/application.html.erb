@@ -8,12 +8,22 @@
 </head>
 <body>
   <p>
-    <strong>Newest song:</strong> <%= most_recent_song.title %>
+    <% if @song != nil %>
+      <strong>Newest song:</strong> <%= most_recent_song.title %>
+      <% else  %>
+      <%end %>
   </p>
 
-  <%flash.each do |type, msg| %>
-    <%= content_tag :div, msg, class: "flash_#{type}" %>
-  <% end %>
+    <%flash.each do |type, msg| %>
+      <%=content_tag :div, msg, class: "flash_#{type}" %>
+    <% end %>
+
+    <% if current_user %>
+      <%= link_to 'Logout', logout_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Login', login_path %>
+    <% end %>
+
 <%= yield %>
 
 </body>
