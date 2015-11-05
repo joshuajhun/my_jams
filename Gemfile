@@ -45,6 +45,7 @@ group :development, :test do
   gem 'capybara'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'mocha'
 end
 
 group :development do
